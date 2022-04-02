@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    name = request.args.get('name', 'John Doe')
+    name = request.args.get('name', 'Jane')
     result = scal_task.hello.delay(name)
     result.wait()
     return render_template('index.html', celery=result)
