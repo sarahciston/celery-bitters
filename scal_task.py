@@ -10,7 +10,7 @@ app = celery.Celery('scalingo-sample')
 app.conf.update(BROKER_URL=os.environ['MONGO_URL'],
                 CELERY_RESULT_BACKEND=os.environ['MONGO_URL'])
 
-db = MongoClient(MONGO_URL)[DB_NAME]
+# db = MongoClient('MONGO_URL')[DB_NAME]
 
 @app.task
 def hello(name):
