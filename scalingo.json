@@ -8,11 +8,6 @@
     "PUBLIC_URL": {
       "description": "URL of the application",
       "generator": "url"
-    },
-    "ADMIN_URL": {
-      "description": "Admin URL of the application",
-      "generator": "url",
-      "template": "%URL%/admin"
     }
   },
   "addons": {
