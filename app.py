@@ -2,6 +2,16 @@ import os
 from flask import Flask
 from flask import render_template
 
+from pymongo import MongoClient
+
+# DB_URL = $SCALINGO_POSTGRESQL_URL
+
+client = MongoClient(MONGO_URL)
+
+db = client.test
+
+print(db.name) 
+
 app = Flask(__name__)
 
 @app.route("/")

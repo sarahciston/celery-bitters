@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 Flask = "==1.*"
+pymongo = "3.11"
 
 [dev-packages]
 
