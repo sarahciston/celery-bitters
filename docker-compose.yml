@@ -8,7 +8,8 @@ services:
     volumes:
       - .:/usr/src/app
     environment:
-      REDIS_URL: redis://redis:6379/
+      MONGO_URL: $SCALINGO_MONGO_URL
+      #REDIS_URL: redis://redis:6379/
     command: "python ./app.py"
   worker:
     build: .
@@ -16,10 +17,10 @@ services:
     volumes:
       - .:/usr/src/app
     environment:
-      REDIS_URL: redis://redis:6379/
+      MONGO_URL: $SCALINGO_MONGO_URL
       C_FORCE_ROOT: "true"
     command: "celery worker --app=scal_task.app"
-  redis:
-    image: redis
+  mongo:
+    image: mongo
     ports:
       - 6379:6379

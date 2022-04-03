@@ -1,6 +1,6 @@
 import celery
 import os
-from pymongo import MongoClient
+# from pymongo import MongoClient
 
 app = celery.Celery('scalingo-sample')
 
