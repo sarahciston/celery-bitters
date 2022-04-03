@@ -1,9 +1,8 @@
-FROM python:2.7
+FROM python:3.8.2
 
+RUN apt-get update && apt-get install --yes pipenv
 WORKDIR /usr/src/app
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
-VOLUME ["/usr/src/app"]
-CMD [ "python", "./app.py" ]
+COPY ./ /usr/src/app/
+RUN pipenv install --deploy --ignore-pipfile
+CMD pipenv run python app.py

@@ -1,10 +1,7 @@
 {
-  "name": "Celery Bitters",
-  "description": "Sample web application using celery and flask",
+  "name": "Sample Python Flask",
+  "description": "Sample Python web application using the Flask framework",
   "logo": "https://scalingo.com/logo.svg",
-  "repository": "https://github.com/Scalingo/sample-python-celery",
-  "website": "https://scalingo.com",
-  "env": {
-  },
-  "addons": ["scalingo-mongo"]
+  "repository": "https://github.com/Scalingo/sample-python-flask",
+  "website": "https://sample-python-flask.scalingo.io"
 }
