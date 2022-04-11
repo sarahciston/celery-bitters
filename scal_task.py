@@ -13,4 +13,5 @@ def hello(name):
 
 @app.task
 def test(info):
-    return "test "+info
+    output = print("test "+info)
+    return output
