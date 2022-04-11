@@ -14,6 +14,8 @@ def hello():
     result.wait()
     return render_template('index.html', celery=result)
 
+@app.route('/public')
+
 
 @app.route("/test")
 def test():
