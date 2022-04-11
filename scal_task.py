@@ -10,3 +10,7 @@ app.conf.update(BROKER_URL=os.environ['REDIS_URL'],
 @app.task
 def hello(name):
     return "Hello "+name
+
+@app.task
+def test(info):
+    return "test "+info
