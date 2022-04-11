@@ -1,28 +1,10 @@
 {
-  "name": "Celery Bitters",
-  "description": "Sample Python web application using the Flask framework",
+  "name": "Sample Python Celery",
+  "description": "Sample web application using the celery and flask",
   "logo": "https://scalingo.com/logo.svg",
-  "repository": "https://github.com/sarahciston/celery-bitters",
-  "website": "https://sample-python-flask.scalingo.io",
+  "repository": "https://github.com/Scalingo/sample-python-celery",
+  "website": "https://scalingo.com",
   "env": {
-    "PUBLIC_URL": {
-      "description": "URL of the application",
-      "generator": "url"
-    }
   },
-  "addons": {
-    "plan": "mongodb:mongodb-sandbox",
-    "options": {
-      "version": "4.0.16-1"
-    }
-  },
-  "formation": {
-    "web": {
-      "amount": 1,
-      "size": "S"
-    },
-    "worker": {
-      "amount": 1,
-      "size": "S"
-    }
+  "addons": ["scalingo-redis"]
 }
