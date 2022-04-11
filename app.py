@@ -16,8 +16,8 @@ def hello():
 
 @app.route("/test")
 def test():
-    info = request.args.get('info', 'default')
-    result = scal_task.test.delay(info)
+    info = request.args.get('name', 'default')
+    result = scal_task.test.delay(name)
     result.wait()
     return render_template('index.html', celery=result)
 

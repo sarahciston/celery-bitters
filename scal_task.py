@@ -12,6 +12,5 @@ def hello(name):
     return "Hello "+name
 
 @app.task
-def test(info):
-    output = print("test "+info)
-    return output
+def test(name):
+    return "Test "+name
