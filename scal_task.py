@@ -1,12 +1,9 @@
 import celery
 import os
-# from decouple import config
+# from dotenv import load_dotenv
+# load_dotenv(./.env)
 
-# URL = os.environ['REDIS_URL']
-# URL = config('REDIS_URL')
-
-app = celery.Celery('scalingo-sample')
-
+app = celery.Celery('nodeserver')
 
 app.conf.update(BROKER_URL=os.environ['REDIS_URL'],
                 CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
