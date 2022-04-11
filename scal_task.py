@@ -1,5 +1,9 @@
 import celery
 import os
+# from decouple import config
+
+# URL = os.environ['REDIS_URL']
+# URL = config('REDIS_URL')
 
 app = celery.Celery('scalingo-sample')
 
