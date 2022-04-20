@@ -25,7 +25,7 @@ coll = mydb['phrases']
 print(client.list_database_names())
 print(mydb.list_collection_names())
 
-@app.get("/dbinfo")
+@app.route("/dbinfo")
 def dbinfo():
     return render(client.list_database_names())
 
