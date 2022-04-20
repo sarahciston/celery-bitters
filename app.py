@@ -4,7 +4,7 @@ from flask import render_template
 from flask import request
 from flask import send_file
 
-# import scal_task
+import scal_task
 
 app = Flask(__name__)
 
@@ -25,7 +25,7 @@ coll = mydb['phrases']
 print(client.list_database_names())
 print(mydb.list_collection_names())
 
-@app.route("/dbinfo")
+@app.get("/dbinfo")
 def dbinfo():
     return render(client.list_database_names())
 

@@ -1,22 +1,22 @@
-# import celery
+import celery
 import os
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 # load_dotenv(./.env)
 
-# app = celery.Celery('nodeserver')
+app = celery.Celery('nodeserver')
 
-# app.conf.update(BROKER_URL=os.environ['REDIS_URL'],
-                # CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
-# @app.task
+app.conf.update(BROKER_URL=os.environ['REDIS_URL'],
+                CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
+@app.task
 def hello(name):
     return "Hello "+name
 
-# @app.task
+@app.task
 def test(name):
     return "Test "+name
 
 
-
+'''
 from encoder.params_model import model_embedding_size as speaker_embedding_size
 from utils.argutils import print_args
 from utils.modelutils import check_model_paths
@@ -250,3 +250,5 @@ def clone(voice):
             print("Restarting\n")
 
     return voice
+
+'''
