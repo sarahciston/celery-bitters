@@ -1,4 +1,5 @@
 import os
+from pydoc import render_doc
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -8,7 +9,7 @@ import scal_task
 
 app = Flask(__name__)
 
-
+import datetime
 import pymongo
 
 SCALINGO_MONGO_URL = os.environ.get('SCALINGO_MONGO_URL') 
@@ -19,15 +20,27 @@ client = pymongo.MongoClient(SCALINGO_MONGO_URL)
 # client = pymongo.MongoClient(SCALINGO_MONGO_URL, tlsCAFile='mongo/ca.pem')
 # client = pymongo.MongoClient('localhost', 27017)
 
-mydb = client['ivo']
-coll = mydb['phrases']
+db = client['ivo']
+table = db['phrases']
 
 print(client.list_database_names())
-print(mydb.list_collection_names())
+print(db.list_collection_names())
 
-@app.route("/dbinfo")
-def dbinfo():
-    return render(client.list_database_names())
+@app.route("/dbAdd")
+def dbAdd():
+
+    text = "testing one two three"
+
+    newEntry = {
+        "text": text,
+        "machineGenerated": False,
+        "createdAt": datetime.datetime.now().isoformat()
+    }
+
+    e = table.insert_one(newEntry)
+
+    # return render(client.list_database_names())
+    return e.inserted_id
 
 @app.route("/")
 def hello():
