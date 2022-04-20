@@ -4,9 +4,30 @@ from flask import render_template
 from flask import request
 from flask import send_file
 
-import scal_task
+# import scal_task
 
 app = Flask(__name__)
+
+
+import pymongo
+
+SCALINGO_MONGO_URL = os.environ.get('SCALINGO_MONGO_URL') 
+
+client = pymongo.MongoClient(SCALINGO_MONGO_URL)
+# , tls=True, tlsAllowInvalidCertificates=True, tlsCAFile='mongo/ca.pem')
+
+# client = pymongo.MongoClient(SCALINGO_MONGO_URL, tlsCAFile='mongo/ca.pem')
+# client = pymongo.MongoClient('localhost', 27017)
+
+mydb = client['ivo']
+coll = mydb['phrases']
+
+print(client.list_database_names())
+print(mydb.list_collection_names())
+
+@app.route("/dbinfo")
+def dbinfo():
+    return render(client.list_database_names())
 
 @app.route("/")
 def hello():

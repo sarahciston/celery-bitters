@@ -1,17 +1,17 @@
-import celery
+# import celery
 import os
 # from dotenv import load_dotenv
 # load_dotenv(./.env)
 
-app = celery.Celery('nodeserver')
+# app = celery.Celery('nodeserver')
 
-app.conf.update(BROKER_URL=os.environ['REDIS_URL'],
-                CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
-@app.task
+# app.conf.update(BROKER_URL=os.environ['REDIS_URL'],
+                # CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
+# @app.task
 def hello(name):
     return "Hello "+name
 
-@app.task
+# @app.task
 def test(name):
     return "Test "+name
 
@@ -35,7 +35,7 @@ from audioread.exceptions import NoBackendError
 
 
 
-@app.task
+# @app.task
 def clone(voice):
     # DO STUFF HERE TO SEND BACK A CLONED VOICE FILE
 
@@ -243,7 +243,7 @@ def clone(voice):
             sf.write(filename, generated_wav.astype(np.float32), synthesizer.sample_rate)
             num_generated += 1
             print("\nSaved output as %s\n\n" % filename)
-            voice = print("reached here", filename)
+            voice = print("reached here", filename) ##then change this to send the file back and make a place to input text
             
         except Exception as e:
             print("Caught exception: %s" % repr(e))
